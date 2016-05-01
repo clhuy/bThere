@@ -8,6 +8,9 @@
 
 #import "UserModel.h"
 
+@interface UserModel ()
+@end
+
 @implementation UserModel
 + (instancetype) sharedModel {
     static UserModel *_sharedModel = nil;
@@ -19,4 +22,15 @@
     });
     return _sharedModel;
 }
+
+/*- (void) setName: (NSString *) name {
+    if(self.name == nil){
+        self.name = [NSString alloc];
+    }
+    self.name = name;
+}
+
+- (NSString *) getName {
+    return self.name;
+}*/
 @end

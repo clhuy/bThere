@@ -10,6 +10,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "LoginViewController.h"
+#import "TabViewController.h"
 
 @interface AppDelegate ()
 
@@ -45,6 +46,17 @@
                     ];
     // Add any custom logic here.
     return handled;
+}
+
+// log out
+- (void) logOut {
+    // Reset main view controller
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:[[NSBundle mainBundle].infoDictionary objectForKey:@"UIMainStoryboardFile"] bundle:[NSBundle mainBundle]];
+    TabViewController *viewController = (TabViewController *)[storyboard instantiateViewControllerWithIdentifier:@"mainView"];
+    [self.window setRootViewController:viewController];
+    
+    // show login
+    [self showLoginWindow:NO];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

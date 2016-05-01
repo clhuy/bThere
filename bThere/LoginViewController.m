@@ -9,9 +9,11 @@
 #import "LoginViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "UserModel.h"
+//#import "ProfileViewController.h"
 
 @interface LoginViewController ()
-
+@property (strong,nonatomic) UserModel *model;
 @end
 
 @implementation LoginViewController
@@ -32,14 +34,17 @@
     
     // Add the button to the view
     [self.view addSubview:myLoginButton];
+    
+    self.model = [UserModel sharedModel];
 }
 
 // Once the button is clicked, show the login dialog
 -(void)loginButtonClicked
 {
+    //ProfileViewController *profileVC = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login
-     logInWithReadPermissions: @[@"public_profile", @"email", @"user_friends"]
+     logInWithReadPermissions: @[@"public_profile", @"email", @"user_friends", @"user_events"]
      fromViewController:self
      handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
          if (error) {
@@ -52,12 +57,26 @@
              [self dismissViewControllerAnimated:YES completion:nil];
              // fetch user info
              if ([FBSDKAccessToken currentAccessToken]) {
+                 // fetch user name
                  [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
                   startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                       if (!error) {
-                          NSLog(@"fetched user:%@", result);
+                          NSLog(@"fetched user:%@", result[@"name"]);
+                          self.model.name = result[@"name"];
                       }
                   }];
+                 // fetch events
+                 FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                               initWithGraphPath:@"/me/events"
+                                               parameters:nil
+                                               HTTPMethod:@"GET"];
+                 [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                       id result,
+                                                       NSError *error) {
+                     // Handle the result
+                     NSLog(@"result: %@", result);
+                     self.model.events = [result objectForKey:@"data"];
+                 }];
              }
          }
      }];

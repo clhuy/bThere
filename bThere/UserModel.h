@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface UserModel : NSObject
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSDictionary *events;
 + (instancetype) sharedModel;
 @end

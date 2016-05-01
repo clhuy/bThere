@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.h
+//  TabViewController.h
 //  bThere
 //
 //  Created by Le Huy Cu on 4/30/16.
@@ -8,5 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController
+@interface TabViewController : UITabBarController
+
 @end

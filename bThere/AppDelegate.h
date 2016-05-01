@@ -11,6 +11,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-- (void) showLoginWindow:(BOOL) animated;
+- (void) logOut;
 @end
 

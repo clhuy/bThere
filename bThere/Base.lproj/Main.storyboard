@@ -90,7 +90,7 @@
         <!--Profile-->
         <scene sceneID="hl1-Hf-8Xc">
             <objects>
-                <viewController id="69t-LO-sRh" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfielViewController" id="69t-LO-sRh" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="adA-f2-1cj"/>
                         <viewControllerLayoutGuide type="bottom" id="p0A-Km-IqO"/>
@@ -99,7 +99,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_icon" translatesAutoresizingMaskIntoConstraints="NO" id="w9F-i3-eIo" customClass="FBProfilePictureView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_icon" translatesAutoresizingMaskIntoConstraints="NO" id="w9F-i3-eIo">
                                 <rect key="frame" x="225" y="28" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="lJP-y6-h5L"/>
@@ -167,15 +167,18 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="user_icon" id="DkG-cn-qdt"/>
+                    <connections>
+                        <outlet property="nLabel" destination="aWt-hJ-SVe" id="WAR-jc-lBO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOw-Nd-sF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="1722"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="JQ4-AQ-muw">
             <objects>
-                <tabBarController storyboardIdentifier="mainView" automaticallyAdjustsScrollViewInsets="NO" id="Bmt-Wd-G2w" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainView" automaticallyAdjustsScrollViewInsets="NO" id="Bmt-Wd-G2w" customClass="TabViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ZjO-vZ-Kbh">
                         <autoresizingMask key="autoresizingMask"/>

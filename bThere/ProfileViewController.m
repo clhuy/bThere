@@ -9,16 +9,19 @@
 #import "ProfileViewController.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "AppDelegate.h"
+#import "UserModel.h"
 
 @interface ProfileViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *nLabel;
+@property (strong,nonatomic) UserModel *model;
 @end
 
 @implementation ProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.model = [UserModel sharedModel];
+    self.nLabel.text = self.model.name;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,7 +32,7 @@
 - (IBAction)logOut:(id)sender {
     [[FBSDKLoginManager new] logOut];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate showLoginWindow:NO];
+    [appDelegate logOut];
 }
 
 @end
