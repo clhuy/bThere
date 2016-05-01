@@ -57,25 +57,40 @@
              [self dismissViewControllerAnimated:YES completion:nil];
              // fetch user info
              if ([FBSDKAccessToken currentAccessToken]) {
-                 // fetch user name
+                 // fetch user name and id
                  [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
                   startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                       if (!error) {
-                          NSLog(@"fetched user:%@", result[@"name"]);
-                          self.model.name = result[@"name"];
+                          NSLog(@"fetched user:%@", result);
+                          [self.model setUName:result[@"name"]];
+                          [self.model setUID:result[@"id"]];
                       }
                   }];
-                 // fetch events
-                 FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                               initWithGraphPath:@"/me/events"
-                                               parameters:nil
+                 // fetch user profile picture
+                 NSString *gPath = [[NSString alloc] initWithFormat:@"/%@/picture", [self.model getUID]];
+                 FBSDKGraphRequest *requestPic = [[FBSDKGraphRequest alloc]
+                                               initWithGraphPath:gPath
+                                                  parameters:@{@"height": @100, @"width": @100, @"redirect" : @false}
                                                HTTPMethod:@"GET"];
-                 [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                 [requestPic startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                                        id result,
                                                        NSError *error) {
                      // Handle the result
-                     NSLog(@"result: %@", result);
-                     self.model.events = [result objectForKey:@"data"];
+                     NSString *imgString = [[result valueForKey:@"data"] valueForKey:@"url"];
+                     [self.model setUImg:imgString];
+                 }];
+                 
+                 // fetch events
+                 FBSDKGraphRequest *requestEvents = [[FBSDKGraphRequest alloc]
+                                                     initWithGraphPath:@"/me/events"
+                                                     parameters:nil
+                                                     HTTPMethod:@"GET"];
+                 [requestEvents startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                             id result,
+                                                             NSError *error) {
+                     // Handle the result
+                     [self.model setUEvents:[result objectForKey:@"data"]];
+                     NSLog(@"events:%@", result);
                  }];
              }
          }

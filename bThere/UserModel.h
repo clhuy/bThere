@@ -9,7 +9,24 @@
 #import <Foundation/Foundation.h>
 
 @interface UserModel : NSObject
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSDictionary *events;
+//@property (strong, nonatomic) NSString *name;
+//@property (strong, nonatomic) NSDictionary *events;
 + (instancetype) sharedModel;
+- (void) save;
+- (void) setUName: (NSString *) name;
+- (NSString *) getUName;
+- (void) setUID: (NSString *) id;
+- (NSString *) getUID;
+- (void) setUImg: (NSString *) img;
+- (NSString *) getUImg;
+- (void) setUEvents: (NSArray *) events;
+- (NSArray *) getUEvents;
+- (NSDictionary *) eventAtIndex: (NSUInteger) index;
+- (NSMutableArray *) getEventPics;
+- (void) setEventPics: (NSMutableArray *) eventPics;
+
+
+- (void) addEventPics: (NSString *) img atIndex: (NSUInteger) index;
+- (NSString *) eventPicAtIndex: (NSUInteger) index;
+- (void) clearEventPics;
 @end

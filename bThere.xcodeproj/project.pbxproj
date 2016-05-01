@@ -11,6 +11,8 @@
 		F424D3C21CD596DE002E8D2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F424D3C01CD596DE002E8D2F /* Main.storyboard */; };
 		F424D3C61CD59DDA002E8D2F /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3C51CD59DDA002E8D2F /* UserModel.m */; };
 		F424D3CC1CD5B2A1002E8D2F /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3CB1CD5B2A1002E8D2F /* TabViewController.m */; };
+		F424D3CF1CD5E940002E8D2F /* User.plist in Resources */ = {isa = PBXBuildFile; fileRef = F424D3CE1CD5E940002E8D2F /* User.plist */; };
+		F424D3D21CD69DFA002E8D2F /* DateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3D11CD69DFA002E8D2F /* DateParser.m */; };
 		F4FE36421CD16B27009194FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE36411CD16B27009194FD /* main.m */; };
 		F4FE36451CD16B27009194FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE36441CD16B27009194FD /* AppDelegate.m */; };
 		F4FE36481CD16B27009194FD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE36471CD16B27009194FD /* LoginViewController.m */; };
@@ -49,6 +51,9 @@
 		F424D3C51CD59DDA002E8D2F /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		F424D3CA1CD5B2A1002E8D2F /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		F424D3CB1CD5B2A1002E8D2F /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
+		F424D3CE1CD5E940002E8D2F /* User.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = User.plist; sourceTree = "<group>"; };
+		F424D3D01CD69DFA002E8D2F /* DateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateParser.h; sourceTree = "<group>"; };
+		F424D3D11CD69DFA002E8D2F /* DateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateParser.m; sourceTree = "<group>"; };
 		F4FE363D1CD16B27009194FD /* bThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FE36411CD16B27009194FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4FE36431CD16B27009194FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +113,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		F424D3CD1CD5E90D002E8D2F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F424D3CE1CD5E940002E8D2F /* User.plist */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		F4FE36341CD16B27009194FD = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +145,7 @@
 		F4FE363F1CD16B27009194FD /* bThere */ = {
 			isa = PBXGroup;
 			children = (
+				F424D3CD1CD5E90D002E8D2F /* Assets */,
 				F424D3C31CD59DA3002E8D2F /* Model */,
 				F4FE367A1CD170FD009194FD /* Controllers */,
 				F4FE36791CD170E9009194FD /* View */,
@@ -148,6 +162,8 @@
 				F4FE36441CD16B27009194FD /* AppDelegate.m */,
 				F4FE364E1CD16B27009194FD /* LaunchScreen.storyboard */,
 				F4FE36411CD16B27009194FD /* main.m */,
+				F424D3D01CD69DFA002E8D2F /* DateParser.h */,
+				F424D3D11CD69DFA002E8D2F /* DateParser.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -313,6 +329,7 @@
 			files = (
 				F424D3C21CD596DE002E8D2F /* Main.storyboard in Resources */,
 				F4FE36501CD16B27009194FD /* LaunchScreen.storyboard in Resources */,
+				F424D3CF1CD5E940002E8D2F /* User.plist in Resources */,
 				F4FE364D1CD16B27009194FD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +358,7 @@
 				F4FE36481CD16B27009194FD /* LoginViewController.m in Sources */,
 				F4FE36451CD16B27009194FD /* AppDelegate.m in Sources */,
 				F424D3C61CD59DDA002E8D2F /* UserModel.m in Sources */,
+				F424D3D21CD69DFA002E8D2F /* DateParser.m in Sources */,
 				F4FE367D1CD41F0E009194FD /* EventsTableViewController.m in Sources */,
 				F424D3CC1CD5B2A1002E8D2F /* TabViewController.m in Sources */,
 				F4FE36421CD16B27009194FD /* main.m in Sources */,

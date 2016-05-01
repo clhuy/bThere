@@ -7,9 +7,12 @@
 //
 
 #import "EventsTableViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "UserModel.h"
+#import "DateParser.h"
 
 @interface EventsTableViewController ()
-
+@property (strong,nonatomic) UserModel *model;
 @end
 
 @implementation EventsTableViewController
@@ -22,6 +25,38 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.model = [UserModel sharedModel];
+    
+    // fetch events everytime the app launches
+   /* FBSDKGraphRequest *requestEvents = [[FBSDKGraphRequest alloc]
+                                        initWithGraphPath:@"/me/events"
+                                        parameters:nil
+                                        HTTPMethod:@"GET"];
+    [requestEvents startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                id result,
+                                                NSError *error) {
+        // Handle the result
+        [self.model setUEvents:[result objectForKey:@"data"]];
+    }];*/
+    
+    // fetch event pictures
+    /*NSMutableArray *temp = [[NSMutableArray alloc]
+                            init];
+    for(id object in [self.model getUEvents]) {
+        //NSLog(@"key=%@ value=%@", key, [myDict objectForKey:key]);
+        NSString *gPath = [[NSString alloc] initWithFormat:@"/%@/picture", [object objectForKey:@"id"]];
+        FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                      initWithGraphPath:gPath
+                                      parameters:@{@"fields": @"url", @"type": @"small", @"redirect" : @false}
+                                      HTTPMethod:@"GET"];
+        [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                              id result,
+                                              NSError *error) {
+            // Handle the result
+            [temp addObject:[[result objectForKey:@"data"] objectForKey:@"url"]];
+        }];
+    }
+    [self.model setEventPics:temp];*/
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,24 +67,38 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [[self.model getUEvents] count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventCell"forIndexPath:indexPath];
     
-    // Configure the cell...
+    NSDictionary *event = [self.model eventAtIndex:indexPath.row];
+    
+    // fetch and set event picture
+    if(indexPath.row < [[self.model getEventPics] count]){
+    NSURL *url = [NSURL URLWithString:[self.model eventPicAtIndex:indexPath.row]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:data];
+    cell.imageView.image = image;
+    }
+    
+    // set event title
+    cell.textLabel.text = [event objectForKey:@"name"];
+    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+    
+    // parse and set event date
+    NSString* date = [DateParser parseDate:[event objectForKey:@"start_time"]];
+    cell.detailTextLabel.text = date;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

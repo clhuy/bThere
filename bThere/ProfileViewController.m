@@ -8,11 +8,14 @@
 
 #import "ProfileViewController.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "AppDelegate.h"
 #import "UserModel.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePic;
+@property (weak, nonatomic) IBOutlet UILabel *numEventLabel;
 @property (strong,nonatomic) UserModel *model;
 @end
 
@@ -21,7 +24,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.model = [UserModel sharedModel];
-    self.nLabel.text = self.model.name;
+    
+    // set name
+    self.nLabel.text = [self.model getUName];
+    
+    // set profile pic
+    NSURL *url = [NSURL URLWithString:[self.model getUImg]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:data];
+    [self.profilePic setImage:image];
+    
+    // set number of events
+    NSUInteger n = [[self.model getUEvents] count];
+    NSString *text = [[NSString alloc] initWithFormat:@"%lu events", (unsigned long)n];
+    self.numEventLabel.text = text;
 }
 
 - (void)didReceiveMemoryWarning {
