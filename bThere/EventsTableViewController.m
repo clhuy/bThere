@@ -10,6 +10,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "UserModel.h"
 #import "DateParser.h"
+#import "DetailViewController.h"
 
 @interface EventsTableViewController ()
 @property (strong,nonatomic) UserModel *model;
@@ -57,6 +58,9 @@
         }];
     }
     [self.model setEventPics:temp];*/
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,16 +85,14 @@
     NSDictionary *event = [self.model eventAtIndex:indexPath.row];
     
     // fetch and set event picture
-    if(indexPath.row < [[self.model getEventPics] count]){
-    NSURL *url = [NSURL URLWithString:[self.model eventPicAtIndex:indexPath.row]];
+    NSURL *url = [NSURL URLWithString:[[event objectForKey:@"cover"] objectForKey:@"source"]];
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];
     cell.imageView.image = image;
-    }
     
     // set event title
     cell.textLabel.text = [event objectForKey:@"name"];
-    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:13]];
     
     // parse and set event date
     NSString* date = [DateParser parseDate:[event objectForKey:@"start_time"]];
@@ -134,14 +136,19 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"detailView"]) {
+        NSArray<NSIndexPath*> *indexPath = [self.tableView indexPathsForSelectedRows];
+        NSUInteger index = [[indexPath objectAtIndex:0] row];
+        
+        DetailViewController *detailVC = segue.destinationViewController;
+        detailVC.event = [self.model eventAtIndex:index];
+    }
 }
-*/
+
 
 @end

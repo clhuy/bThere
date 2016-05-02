@@ -83,14 +83,14 @@
                  // fetch events
                  FBSDKGraphRequest *requestEvents = [[FBSDKGraphRequest alloc]
                                                      initWithGraphPath:@"/me/events"
-                                                     parameters:nil
+                                                     parameters:@{@"fields":@"description, name, start_time, cover, place"}
                                                      HTTPMethod:@"GET"];
                  [requestEvents startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                                              id result,
                                                              NSError *error) {
                      // Handle the result
                      [self.model setUEvents:[result objectForKey:@"data"]];
-                     NSLog(@"events:%@", result);
+                     //NSLog(@"events:%@", result);
                  }];
              }
          }

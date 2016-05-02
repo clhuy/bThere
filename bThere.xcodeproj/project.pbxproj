@@ -13,6 +13,7 @@
 		F424D3CC1CD5B2A1002E8D2F /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3CB1CD5B2A1002E8D2F /* TabViewController.m */; };
 		F424D3CF1CD5E940002E8D2F /* User.plist in Resources */ = {isa = PBXBuildFile; fileRef = F424D3CE1CD5E940002E8D2F /* User.plist */; };
 		F424D3D21CD69DFA002E8D2F /* DateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3D11CD69DFA002E8D2F /* DateParser.m */; };
+		F424D3D51CD6D147002E8D2F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3D41CD6D147002E8D2F /* DetailViewController.m */; };
 		F4FE36421CD16B27009194FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE36411CD16B27009194FD /* main.m */; };
 		F4FE36451CD16B27009194FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE36441CD16B27009194FD /* AppDelegate.m */; };
 		F4FE36481CD16B27009194FD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE36471CD16B27009194FD /* LoginViewController.m */; };
@@ -54,6 +55,8 @@
 		F424D3CE1CD5E940002E8D2F /* User.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = User.plist; sourceTree = "<group>"; };
 		F424D3D01CD69DFA002E8D2F /* DateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateParser.h; sourceTree = "<group>"; };
 		F424D3D11CD69DFA002E8D2F /* DateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateParser.m; sourceTree = "<group>"; };
+		F424D3D31CD6D147002E8D2F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		F424D3D41CD6D147002E8D2F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		F4FE363D1CD16B27009194FD /* bThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FE36411CD16B27009194FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4FE36431CD16B27009194FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 				F424D3BE1CD59060002E8D2F /* ProfileViewController.m */,
 				F424D3CA1CD5B2A1002E8D2F /* TabViewController.h */,
 				F424D3CB1CD5B2A1002E8D2F /* TabViewController.m */,
+				F424D3D31CD6D147002E8D2F /* DetailViewController.h */,
+				F424D3D41CD6D147002E8D2F /* DetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				F424D3C61CD59DDA002E8D2F /* UserModel.m in Sources */,
 				F424D3D21CD69DFA002E8D2F /* DateParser.m in Sources */,
 				F4FE367D1CD41F0E009194FD /* EventsTableViewController.m in Sources */,
+				F424D3D51CD6D147002E8D2F /* DetailViewController.m in Sources */,
 				F424D3CC1CD5B2A1002E8D2F /* TabViewController.m in Sources */,
 				F4FE36421CD16B27009194FD /* main.m in Sources */,
 				F424D3BF1CD59060002E8D2F /* ProfileViewController.m in Sources */,

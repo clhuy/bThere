@@ -55,6 +55,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="e29-pJ-sSC" kind="show" identifier="detailView" id="5Zh-da-0I3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -67,6 +70,105 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azJ-34-rOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1945" y="284"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="r9G-Xs-wYW">
+            <objects>
+                <viewController id="e29-pJ-sSC" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kvg-oR-gWi"/>
+                        <viewControllerLayoutGuide type="bottom" id="gJz-Xf-NRC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OlP-BH-mEr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P86-MW-pcB">
+                                <rect key="frame" x="0.0" y="336" width="600" height="28"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="jxt-6S-1ci"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ldB-cZ-rG5">
+                                <rect key="frame" x="0.0" y="64" width="600" height="163"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="163" id="VpB-dU-1nI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE2-A1-28X">
+                                <rect key="frame" x="0.0" y="228" width="600" height="48"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="pdo-4G-mVk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzS-wK-WLO">
+                                <rect key="frame" x="0.0" y="279" width="600" height="32"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="pYJ-nd-QGD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Heg-St-5PZ">
+                                <rect key="frame" x="0.0" y="314" width="600" height="32"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HwD-Oc-d3z">
+                                <rect key="frame" x="0.0" y="369" width="600" height="176"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="P86-MW-pcB" firstAttribute="leading" secondItem="HwD-Oc-d3z" secondAttribute="leading" id="3we-IJ-qyS"/>
+                            <constraint firstItem="Heg-St-5PZ" firstAttribute="leading" secondItem="OlP-BH-mEr" secondAttribute="leading" id="5IM-eg-WaT"/>
+                            <constraint firstItem="HwD-Oc-d3z" firstAttribute="top" secondItem="P86-MW-pcB" secondAttribute="bottom" constant="5" id="9Va-vu-UaJ"/>
+                            <constraint firstItem="jzS-wK-WLO" firstAttribute="trailing" secondItem="Heg-St-5PZ" secondAttribute="trailing" id="9qu-ah-eqL"/>
+                            <constraint firstItem="ldB-cZ-rG5" firstAttribute="trailing" secondItem="IE2-A1-28X" secondAttribute="trailing" id="BCe-UG-ahR"/>
+                            <constraint firstItem="Heg-St-5PZ" firstAttribute="top" secondItem="jzS-wK-WLO" secondAttribute="bottom" constant="3" id="Djn-I2-jcE"/>
+                            <constraint firstAttribute="trailing" secondItem="Heg-St-5PZ" secondAttribute="trailing" id="Erz-ZT-SIr"/>
+                            <constraint firstItem="ldB-cZ-rG5" firstAttribute="top" secondItem="Kvg-oR-gWi" secondAttribute="bottom" id="FNN-Wm-4gM"/>
+                            <constraint firstItem="jzS-wK-WLO" firstAttribute="leading" secondItem="Heg-St-5PZ" secondAttribute="leading" id="OaE-QK-dyn"/>
+                            <constraint firstItem="jzS-wK-WLO" firstAttribute="leading" secondItem="IE2-A1-28X" secondAttribute="leading" id="RKv-Gt-eUE"/>
+                            <constraint firstItem="jzS-wK-WLO" firstAttribute="top" secondItem="IE2-A1-28X" secondAttribute="bottom" constant="3" id="UA4-PC-KMO"/>
+                            <constraint firstItem="HwD-Oc-d3z" firstAttribute="top" secondItem="Heg-St-5PZ" secondAttribute="bottom" constant="23" id="XB3-2q-Qp4"/>
+                            <constraint firstItem="Heg-St-5PZ" firstAttribute="trailing" secondItem="P86-MW-pcB" secondAttribute="trailing" id="aqO-x1-b0d"/>
+                            <constraint firstItem="IE2-A1-28X" firstAttribute="trailing" secondItem="jzS-wK-WLO" secondAttribute="trailing" id="b6g-KC-RbE"/>
+                            <constraint firstItem="ldB-cZ-rG5" firstAttribute="leading" secondItem="IE2-A1-28X" secondAttribute="leading" id="i9E-4z-QDE"/>
+                            <constraint firstItem="IE2-A1-28X" firstAttribute="top" secondItem="ldB-cZ-rG5" secondAttribute="bottom" constant="1" id="nLv-3V-pCk"/>
+                            <constraint firstItem="P86-MW-pcB" firstAttribute="trailing" secondItem="HwD-Oc-d3z" secondAttribute="trailing" id="qD5-Qs-D8Q"/>
+                            <constraint firstItem="P86-MW-pcB" firstAttribute="top" secondItem="jzS-wK-WLO" secondAttribute="bottom" constant="25" id="vR2-JI-5Ei"/>
+                            <constraint firstItem="gJz-Xf-NRC" firstAttribute="top" secondItem="HwD-Oc-d3z" secondAttribute="bottom" constant="6" id="wMR-jg-Lg0"/>
+                            <constraint firstItem="Heg-St-5PZ" firstAttribute="leading" secondItem="P86-MW-pcB" secondAttribute="leading" id="wuj-cR-wzt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="P86-MW-pcB" id="9Rf-BX-sdh"/>
+                        <outlet property="coverImg" destination="ldB-cZ-rG5" id="oAM-2Z-ZxM"/>
+                        <outlet property="dateLabel" destination="jzS-wK-WLO" id="c9M-wD-4Zy"/>
+                        <outlet property="descriptionLabel" destination="HwD-Oc-d3z" id="WpE-jU-NJC"/>
+                        <outlet property="locationLabel" destination="Heg-St-5PZ" id="oTI-us-tMU"/>
+                        <outlet property="nameLabel" destination="IE2-A1-28X" id="WSK-Lz-ihu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c2r-nh-qjN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2820" y="284"/>
         </scene>
         <!--Events-->
         <scene sceneID="Hdr-aL-uit">
