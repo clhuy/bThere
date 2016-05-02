@@ -106,8 +106,12 @@ static NSString *const kBTherePList = @"User.plist";
     return [[self.user objectForKey:@"EventPics"] objectAtIndex:index];
 }
 
-- (void) clearEventPics {
+- (void) clearData {
     [[self.user objectForKey:@"EventPics"] removeAllObjects];
+    [[self.user objectForKey:@"Events"] removeAllObjects];
+    [self.user setObject:@"" forKey:@"ID"];
+    [self.user setObject:@"" forKey:@"Name"];
+    [self.user setObject:@"" forKey:@"Picture"];
     [self save];
 }
 

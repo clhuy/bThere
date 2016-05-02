@@ -52,32 +52,33 @@
          } else if (result.isCancelled) {
              NSLog(@"Cancelled");
          } else { // login was successful
-             NSLog(@"Logged in");
-             // dismiss the login window
-             [self dismissViewControllerAnimated:YES completion:nil];
              // fetch user info
              if ([FBSDKAccessToken currentAccessToken]) {
                  // fetch user name and id
-                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields":@"id, name"}]
                   startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-                      if (!error) {
+                      //if (!error) {
                           NSLog(@"fetched user:%@", result);
                           [self.model setUName:result[@"name"]];
                           [self.model setUID:result[@"id"]];
-                      }
+                      //}
                   }];
                  // fetch user profile picture
                  NSString *gPath = [[NSString alloc] initWithFormat:@"/%@/picture", [self.model getUID]];
+                 NSLog(@"%@",gPath);
                  FBSDKGraphRequest *requestPic = [[FBSDKGraphRequest alloc]
                                                initWithGraphPath:gPath
-                                                  parameters:@{@"height": @100, @"width": @100, @"redirect" : @false}
+                                                  parameters:@{@"fields":@"url", @"type": @"large", @"redirect" : @"false"}
                                                HTTPMethod:@"GET"];
                  [requestPic startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                                        id result,
                                                        NSError *error) {
                      // Handle the result
                      NSString *imgString = [[result valueForKey:@"data"] valueForKey:@"url"];
+                     NSLog(@"%@",result);
+                     if(imgString!=nil){
                      [self.model setUImg:imgString];
+                     }
                  }];
                  
                  // fetch events
@@ -92,6 +93,9 @@
                      [self.model setUEvents:[result objectForKey:@"data"]];
                      //NSLog(@"events:%@", result);
                  }];
+                 
+                 // dismiss the login window
+                 [self dismissViewControllerAnimated:YES completion:nil];
              }
          }
      }];

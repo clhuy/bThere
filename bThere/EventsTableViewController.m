@@ -58,9 +58,9 @@
         }];
     }
     [self.model setEventPics:temp];*/
-#if TARGET_IPHONE_SIMULATOR
+/*#if TARGET_IPHONE_SIMULATOR
     NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
-#endif
+#endif*/
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,8 +78,8 @@
     return [[self.model getUEvents] count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"cells should be set");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventCell"forIndexPath:indexPath];
     
     NSDictionary *event = [self.model eventAtIndex:indexPath.row];
@@ -101,6 +101,9 @@
     return cell;
 }
 
+- (IBAction)refreshTable:(id)sender {
+    [self.tableView reloadData];
+}
 
 /*
 // Override to support conditional editing of the table view.

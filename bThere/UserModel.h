@@ -24,9 +24,9 @@
 - (NSDictionary *) eventAtIndex: (NSUInteger) index;
 - (NSMutableArray *) getEventPics;
 - (void) setEventPics: (NSMutableArray *) eventPics;
-
+- (void) clearData;
 
 - (void) addEventPics: (NSString *) img atIndex: (NSUInteger) index;
 - (NSString *) eventPicAtIndex: (NSUInteger) index;
-- (void) clearEventPics;
+
 @end
