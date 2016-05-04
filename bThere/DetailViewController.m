@@ -70,6 +70,9 @@
     // description label
     self.descriptionLabel.text = [self.event objectForKey:@"description"];
     
+    // back button
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {

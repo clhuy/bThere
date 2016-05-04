@@ -22,10 +22,10 @@
     [super viewDidLoad];
     // Add a custom login button to your app
     UIButton *myLoginButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    myLoginButton.backgroundColor=[UIColor darkGrayColor];
-    myLoginButton.frame=CGRectMake(0,0,180,40);
+    myLoginButton.frame=CGRectMake(0,0,246,54);
+    UIImage *buttonImage = [UIImage imageNamed:@"fbbutton"];
+    [myLoginButton setImage:buttonImage forState:UIControlStateNormal];
     myLoginButton.center = self.view.center;
-    [myLoginButton setTitle: @"My Login Button" forState: UIControlStateNormal];
     
     // Handle clicks on the button
     [myLoginButton

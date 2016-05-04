@@ -69,6 +69,7 @@
 		F424D3E11CD87DA3002E8D2F /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 		F424D3E31CD97CA9002E8D2F /* CustomCallOutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCallOutButton.h; sourceTree = "<group>"; };
 		F424D3E41CD97CA9002E8D2F /* CustomCallOutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCallOutButton.m; sourceTree = "<group>"; };
+		F424D3E81CD9D1C9002E8D2F /* bThere.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = bThere.entitlements; sourceTree = "<group>"; };
 		F4FE363D1CD16B27009194FD /* bThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FE36411CD16B27009194FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4FE36431CD16B27009194FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -164,6 +165,7 @@
 		F4FE363F1CD16B27009194FD /* bThere */ = {
 			isa = PBXGroup;
 			children = (
+				F424D3E81CD9D1C9002E8D2F /* bThere.entitlements */,
 				F424D3CD1CD5E90D002E8D2F /* Assets */,
 				F424D3C31CD59DA3002E8D2F /* Model */,
 				F4FE367A1CD170FD009194FD /* Controllers */,
@@ -312,6 +314,14 @@
 					F4FE363C1CD16B27009194FD = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = MSRW3FYYTY;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.HomeKit = {
+								enabled = 0;
+							};
+						};
 					};
 					F4FE36551CD16B27009194FD = {
 						CreatedOnToolsVersion = 7.2;
@@ -528,11 +538,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = /Users/clhuy/Documents/FacebookSDK;
 				INFOPLIST_FILE = bThere/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.usc.bThere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -540,11 +553,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = /Users/clhuy/Documents/FacebookSDK;
 				INFOPLIST_FILE = bThere/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.usc.bThere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

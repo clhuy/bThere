@@ -13,7 +13,9 @@
 #import "DetailViewController.h"
 
 @interface EventsTableViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 @property (strong,nonatomic) UserModel *model;
+
 @end
 
 @implementation EventsTableViewController
@@ -26,36 +28,11 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.model = [UserModel sharedModel];
-    // fetch events everytime the app launches
-   /* FBSDKGraphRequest *requestEvents = [[FBSDKGraphRequest alloc]
-                                        initWithGraphPath:@"/me/events"
-                                        parameters:nil
-                                        HTTPMethod:@"GET"];
-    [requestEvents startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                                id result,
-                                                NSError *error) {
-        // Handle the result
-        [self.model setUEvents:[result objectForKey:@"data"]];
-    }];*/
-    
-    // fetch event pictures
-    /*NSMutableArray *temp = [[NSMutableArray alloc]
-                            init];
-    for(id object in [self.model getUEvents]) {
-        //NSLog(@"key=%@ value=%@", key, [myDict objectForKey:key]);
-        NSString *gPath = [[NSString alloc] initWithFormat:@"/%@/picture", [object objectForKey:@"id"]];
-        FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                      initWithGraphPath:gPath
-                                      parameters:@{@"fields": @"url", @"type": @"small", @"redirect" : @false}
-                                      HTTPMethod:@"GET"];
-        [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                              id result,
-                                              NSError *error) {
-            // Handle the result
-            [temp addObject:[[result objectForKey:@"data"] objectForKey:@"url"]];
-        }];
-    }
-    [self.model setEventPics:temp];*/
+
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:2.0/255.0 green:141.0/255.0 blue:215.0/255.0 alpha:1.0];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.refreshButton.tintColor = [UIColor whiteColor];
 /*#if TARGET_IPHONE_SIMULATOR
     NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
 #endif*/
@@ -81,7 +58,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cells should be set");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventCell"forIndexPath:indexPath];
     
     NSDictionary *event = [self.model eventAtIndex:indexPath.row];
