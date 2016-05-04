@@ -53,6 +53,11 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:2.0/255.0 green:141.0/255.0 blue:215.0/255.0 alpha:1.0];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    
+    // zoom into user's location
+    CLLocationCoordinate2D coord = self.mapView.userLocation.location.coordinate;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, 1000.0, 1000.0);
+    [self.mapView setRegion:region animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,12 +75,13 @@
     [self.locationManager requestWhenInUseAuthorization]; // Add This Line
 }
 
-
+/*
 - (void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     CLLocationCoordinate2D coord = self.mapView.userLocation.location.coordinate;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, 1000.0, 1000.0);
     [self.mapView setRegion:region animated:YES];
 }
+*/
 
 - (MKAnnotationView*) mapView:(MKMapView *)mapView viewForAnnotation:(CustomAnnotation*)annotation {
     if([annotation isKindOfClass:[MKUserLocation class]]) return nil;

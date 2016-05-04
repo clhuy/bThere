@@ -33,9 +33,12 @@
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.refreshButton.tintColor = [UIColor whiteColor];
-/*#if TARGET_IPHONE_SIMULATOR
+#if TARGET_IPHONE_SIMULATOR
     NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
-#endif*/
+#else
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSLog(@"Documents Directory: %@",[paths firstObject]);
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,6 +83,7 @@
 }
 
 - (IBAction)refreshTable:(id)sender {
+    NSLog(@"%@",[self.model getUName]);
     [self.tableView reloadData];
 }
 

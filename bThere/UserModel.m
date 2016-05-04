@@ -34,8 +34,17 @@ static NSString *const kBTherePList = @"User.plist";
     self = [super init];
     if (self) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *documentsDirectory = [paths lastObject];
         _filepath = [documentsDirectory stringByAppendingPathComponent:kBTherePList];
+        
+        // If the file doesn't exist in the Documents Folder, copy it from bundle
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        if (![fileManager fileExistsAtPath:_filepath]) {
+            NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"User" ofType:@"plist"];
+            [fileManager copyItemAtPath:sourcePath toPath:_filepath error:nil];
+        }
+
         _user = [[NSMutableDictionary alloc] initWithContentsOfFile:_filepath];
         
     }
