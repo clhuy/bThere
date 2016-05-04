@@ -107,8 +107,9 @@ static NSString *const kBTherePList = @"User.plist";
 }
 
 - (void) clearData {
-    [[self.user objectForKey:@"EventPics"] removeAllObjects];
-    [[self.user objectForKey:@"Events"] removeAllObjects];
+    //[[self.user objectForKey:@"EventPics"] removeAllObjects];
+    NSMutableArray *empty = [[NSMutableArray alloc] init];
+    [self.user setObject:empty forKey:@"Events"];
     [self.user setObject:@"" forKey:@"ID"];
     [self.user setObject:@"" forKey:@"Name"];
     [self.user setObject:@"" forKey:@"Picture"];

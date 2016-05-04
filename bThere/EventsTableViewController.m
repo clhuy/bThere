@@ -17,7 +17,6 @@
 @end
 
 @implementation EventsTableViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -27,7 +26,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.model = [UserModel sharedModel];
-    
     // fetch events everytime the app launches
    /* FBSDKGraphRequest *requestEvents = [[FBSDKGraphRequest alloc]
                                         initWithGraphPath:@"/me/events"
@@ -71,7 +69,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    if([[self.model getUEvents] count] != 0){
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        return 1;
+    }
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

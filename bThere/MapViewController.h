@@ -1,5 +1,5 @@
 //
-//  TabViewController.h
+//  MapViewController.h
 //  bThere
 //
 //  Created by Le Huy Cu on 5/2/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TabViewController : UITabBarController
+@interface MapViewController : UIViewController
 
 @end

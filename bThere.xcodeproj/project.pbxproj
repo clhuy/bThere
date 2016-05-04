@@ -10,10 +10,15 @@
 		F424D3BF1CD59060002E8D2F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3BE1CD59060002E8D2F /* ProfileViewController.m */; };
 		F424D3C21CD596DE002E8D2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F424D3C01CD596DE002E8D2F /* Main.storyboard */; };
 		F424D3C61CD59DDA002E8D2F /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3C51CD59DDA002E8D2F /* UserModel.m */; };
-		F424D3CC1CD5B2A1002E8D2F /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3CB1CD5B2A1002E8D2F /* TabViewController.m */; };
 		F424D3CF1CD5E940002E8D2F /* User.plist in Resources */ = {isa = PBXBuildFile; fileRef = F424D3CE1CD5E940002E8D2F /* User.plist */; };
 		F424D3D21CD69DFA002E8D2F /* DateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3D11CD69DFA002E8D2F /* DateParser.m */; };
 		F424D3D51CD6D147002E8D2F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3D41CD6D147002E8D2F /* DetailViewController.m */; };
+		F424D3D71CD8181C002E8D2F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F424D3D61CD8181C002E8D2F /* CoreLocation.framework */; };
+		F424D3D91CD81822002E8D2F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F424D3D81CD81822002E8D2F /* MapKit.framework */; };
+		F424D3DC1CD827E5002E8D2F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3DB1CD827E5002E8D2F /* MapViewController.m */; };
+		F424D3DF1CD8292B002E8D2F /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3DE1CD8292B002E8D2F /* TabViewController.m */; };
+		F424D3E21CD87DA3002E8D2F /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3E11CD87DA3002E8D2F /* CustomAnnotation.m */; };
+		F424D3E51CD97CA9002E8D2F /* CustomCallOutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3E41CD97CA9002E8D2F /* CustomCallOutButton.m */; };
 		F4FE36421CD16B27009194FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE36411CD16B27009194FD /* main.m */; };
 		F4FE36451CD16B27009194FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE36441CD16B27009194FD /* AppDelegate.m */; };
 		F4FE36481CD16B27009194FD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE36471CD16B27009194FD /* LoginViewController.m */; };
@@ -24,7 +29,6 @@
 		F4FE36751CD16B4A009194FD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FE36741CD16B4A009194FD /* FBSDKCoreKit.framework */; };
 		F4FE36771CD1708A009194FD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FE36761CD1708A009194FD /* FBSDKLoginKit.framework */; };
 		F4FE367D1CD41F0E009194FD /* EventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE367C1CD41F0E009194FD /* EventsTableViewController.m */; };
-		F4FE36801CD42187009194FD /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE367F1CD42187009194FD /* EventTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,13 +54,21 @@
 		F424D3C11CD596DE002E8D2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F424D3C41CD59DDA002E8D2F /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		F424D3C51CD59DDA002E8D2F /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
-		F424D3CA1CD5B2A1002E8D2F /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
-		F424D3CB1CD5B2A1002E8D2F /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		F424D3CE1CD5E940002E8D2F /* User.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = User.plist; sourceTree = "<group>"; };
 		F424D3D01CD69DFA002E8D2F /* DateParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateParser.h; sourceTree = "<group>"; };
 		F424D3D11CD69DFA002E8D2F /* DateParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateParser.m; sourceTree = "<group>"; };
 		F424D3D31CD6D147002E8D2F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		F424D3D41CD6D147002E8D2F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		F424D3D61CD8181C002E8D2F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F424D3D81CD81822002E8D2F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F424D3DA1CD827E5002E8D2F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		F424D3DB1CD827E5002E8D2F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		F424D3DD1CD8292B002E8D2F /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		F424D3DE1CD8292B002E8D2F /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
+		F424D3E01CD87DA3002E8D2F /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
+		F424D3E11CD87DA3002E8D2F /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
+		F424D3E31CD97CA9002E8D2F /* CustomCallOutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCallOutButton.h; sourceTree = "<group>"; };
+		F424D3E41CD97CA9002E8D2F /* CustomCallOutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCallOutButton.m; sourceTree = "<group>"; };
 		F4FE363D1CD16B27009194FD /* bThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FE36411CD16B27009194FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4FE36431CD16B27009194FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,8 +88,6 @@
 		F4FE36761CD1708A009194FD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F4FE367B1CD41F0E009194FD /* EventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsTableViewController.h; sourceTree = "<group>"; };
 		F4FE367C1CD41F0E009194FD /* EventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsTableViewController.m; sourceTree = "<group>"; };
-		F4FE367E1CD42187009194FD /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
-		F4FE367F1CD42187009194FD /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F424D3D91CD81822002E8D2F /* MapKit.framework in Frameworks */,
+				F424D3D71CD8181C002E8D2F /* CoreLocation.framework in Frameworks */,
 				F4FE36771CD1708A009194FD /* FBSDKLoginKit.framework in Frameworks */,
 				F4FE36751CD16B4A009194FD /* FBSDKCoreKit.framework in Frameworks */,
 			);
@@ -112,6 +124,10 @@
 			children = (
 				F424D3C41CD59DDA002E8D2F /* UserModel.h */,
 				F424D3C51CD59DDA002E8D2F /* UserModel.m */,
+				F424D3E01CD87DA3002E8D2F /* CustomAnnotation.h */,
+				F424D3E11CD87DA3002E8D2F /* CustomAnnotation.m */,
+				F424D3E31CD97CA9002E8D2F /* CustomCallOutButton.h */,
+				F424D3E41CD97CA9002E8D2F /* CustomCallOutButton.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -192,6 +208,8 @@
 		F4FE36731CD16B35009194FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F424D3D81CD81822002E8D2F /* MapKit.framework */,
+				F424D3D61CD8181C002E8D2F /* CoreLocation.framework */,
 				F4FE36761CD1708A009194FD /* FBSDKLoginKit.framework */,
 				F4FE36741CD16B4A009194FD /* FBSDKCoreKit.framework */,
 			);
@@ -214,14 +232,14 @@
 				F4FE36471CD16B27009194FD /* LoginViewController.m */,
 				F4FE367B1CD41F0E009194FD /* EventsTableViewController.h */,
 				F4FE367C1CD41F0E009194FD /* EventsTableViewController.m */,
-				F4FE367E1CD42187009194FD /* EventTableViewCell.h */,
-				F4FE367F1CD42187009194FD /* EventTableViewCell.m */,
 				F424D3BD1CD59060002E8D2F /* ProfileViewController.h */,
 				F424D3BE1CD59060002E8D2F /* ProfileViewController.m */,
-				F424D3CA1CD5B2A1002E8D2F /* TabViewController.h */,
-				F424D3CB1CD5B2A1002E8D2F /* TabViewController.m */,
 				F424D3D31CD6D147002E8D2F /* DetailViewController.h */,
 				F424D3D41CD6D147002E8D2F /* DetailViewController.m */,
+				F424D3DA1CD827E5002E8D2F /* MapViewController.h */,
+				F424D3DB1CD827E5002E8D2F /* MapViewController.m */,
+				F424D3DD1CD8292B002E8D2F /* TabViewController.h */,
+				F424D3DE1CD8292B002E8D2F /* TabViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -363,13 +381,15 @@
 				F4FE36481CD16B27009194FD /* LoginViewController.m in Sources */,
 				F4FE36451CD16B27009194FD /* AppDelegate.m in Sources */,
 				F424D3C61CD59DDA002E8D2F /* UserModel.m in Sources */,
+				F424D3DC1CD827E5002E8D2F /* MapViewController.m in Sources */,
+				F424D3DF1CD8292B002E8D2F /* TabViewController.m in Sources */,
+				F424D3E21CD87DA3002E8D2F /* CustomAnnotation.m in Sources */,
 				F424D3D21CD69DFA002E8D2F /* DateParser.m in Sources */,
 				F4FE367D1CD41F0E009194FD /* EventsTableViewController.m in Sources */,
 				F424D3D51CD6D147002E8D2F /* DetailViewController.m in Sources */,
-				F424D3CC1CD5B2A1002E8D2F /* TabViewController.m in Sources */,
 				F4FE36421CD16B27009194FD /* main.m in Sources */,
 				F424D3BF1CD59060002E8D2F /* ProfileViewController.m in Sources */,
-				F4FE36801CD42187009194FD /* EventTableViewCell.m in Sources */,
+				F424D3E51CD97CA9002E8D2F /* CustomCallOutButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

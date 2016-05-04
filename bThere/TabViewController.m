@@ -2,7 +2,7 @@
 //  TabViewController.m
 //  bThere
 //
-//  Created by Le Huy Cu on 4/30/16.
+//  Created by Le Huy Cu on 5/2/16.
 //  Copyright © 2016 Le Huy Cu. All rights reserved.
 //
 
@@ -21,6 +21,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 /*

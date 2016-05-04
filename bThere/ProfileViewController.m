@@ -30,6 +30,7 @@
     self.nLabel.text = [self.model getUName];
     
     // set profile pic
+    // fetch user profile picture
     NSURL *url = [NSURL URLWithString:[self.model getUImg]];
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];

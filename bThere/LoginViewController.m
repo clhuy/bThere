@@ -57,15 +57,31 @@
                  // fetch user name and id
                  [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields":@"id, name"}]
                   startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-                      //if (!error) {
                           NSLog(@"fetched user:%@", result);
                           [self.model setUName:result[@"name"]];
                           [self.model setUID:result[@"id"]];
-                      //}
+                      
+                      // fetch user profile pic
+                      NSString *gPath = [[NSString alloc] initWithFormat:@"/%@/picture", result[@"id"]];
+                      NSLog(@"user id: %@",result[@"id"]);
+                      FBSDKGraphRequest *requestPic = [[FBSDKGraphRequest alloc]
+                                                       initWithGraphPath:gPath
+                                                       parameters:@{@"fields":@"url", @"type": @"large", @"redirect" : @"false"}
+                                                       HTTPMethod:@"GET"];
+                      [requestPic startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                                               id result,
+                                                               NSError *error) {
+                          // Handle the result
+                          NSString *imgString = [[result valueForKey:@"data"] valueForKey:@"url"];
+                          NSLog(@"%@",result);
+                          if(imgString!=nil){
+                              [self.model setUImg:imgString];
+                          }
+                      }];
                   }];
                  // fetch user profile picture
-                 NSString *gPath = [[NSString alloc] initWithFormat:@"/%@/picture", [self.model getUID]];
-                 NSLog(@"%@",gPath);
+                 /*NSString *gPath = [[NSString alloc] initWithFormat:@"/%@/picture", [self.model getUID]];
+                 NSLog(@"user id: %@",[self.model getUID]);
                  FBSDKGraphRequest *requestPic = [[FBSDKGraphRequest alloc]
                                                initWithGraphPath:gPath
                                                   parameters:@{@"fields":@"url", @"type": @"large", @"redirect" : @"false"}
@@ -79,7 +95,7 @@
                      if(imgString!=nil){
                      [self.model setUImg:imgString];
                      }
-                 }];
+                 }];*/
                  
                  // fetch events
                  FBSDKGraphRequest *requestEvents = [[FBSDKGraphRequest alloc]
