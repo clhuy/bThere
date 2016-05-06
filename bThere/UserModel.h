@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface UserModel : NSObject
-//@property (strong, nonatomic) NSString *name;
-//@property (strong, nonatomic) NSDictionary *events;
 + (instancetype) sharedModel;
 - (void) save;
 - (void) setUName: (NSString *) name;
@@ -25,8 +23,4 @@
 - (NSMutableArray *) getEventPics;
 - (void) setEventPics: (NSMutableArray *) eventPics;
 - (void) clearData;
-
-- (void) addEventPics: (NSString *) img atIndex: (NSUInteger) index;
-- (NSString *) eventPicAtIndex: (NSUInteger) index;
-
 @end

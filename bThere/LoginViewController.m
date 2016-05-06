@@ -41,7 +41,7 @@
 // Once the button is clicked, show the login dialog
 -(void)loginButtonClicked
 {
-    //ProfileViewController *profileVC = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
+    // FB Login API
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login
      logInWithReadPermissions: @[@"public_profile", @"email", @"user_friends", @"user_events"]
@@ -57,7 +57,6 @@
                  // fetch user name and id
                  [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields":@"id, name"}]
                   startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-                          NSLog(@"fetched user:%@", result);
                           [self.model setUName:result[@"name"]];
                           [self.model setUID:result[@"id"]];
                       
@@ -73,29 +72,11 @@
                                                                NSError *error) {
                           // Handle the result
                           NSString *imgString = [[result valueForKey:@"data"] valueForKey:@"url"];
-                          NSLog(@"%@",result);
                           if(imgString!=nil){
                               [self.model setUImg:imgString];
                           }
                       }];
                   }];
-                 // fetch user profile picture
-                 /*NSString *gPath = [[NSString alloc] initWithFormat:@"/%@/picture", [self.model getUID]];
-                 NSLog(@"user id: %@",[self.model getUID]);
-                 FBSDKGraphRequest *requestPic = [[FBSDKGraphRequest alloc]
-                                               initWithGraphPath:gPath
-                                                  parameters:@{@"fields":@"url", @"type": @"large", @"redirect" : @"false"}
-                                               HTTPMethod:@"GET"];
-                 [requestPic startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                                       id result,
-                                                       NSError *error) {
-                     // Handle the result
-                     NSString *imgString = [[result valueForKey:@"data"] valueForKey:@"url"];
-                     NSLog(@"%@",result);
-                     if(imgString!=nil){
-                     [self.model setUImg:imgString];
-                     }
-                 }];*/
                  
                  // fetch events
                  FBSDKGraphRequest *requestEvents = [[FBSDKGraphRequest alloc]
@@ -107,7 +88,6 @@
                                                              NSError *error) {
                      // Handle the result
                      [self.model setUEvents:[result objectForKey:@"data"]];
-                     //NSLog(@"events:%@", result);
                  }];
                  
                  // dismiss the login window

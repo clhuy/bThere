@@ -29,10 +29,12 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.model = [UserModel sharedModel];
 
+    // set navbar color
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:2.0/255.0 green:141.0/255.0 blue:215.0/255.0 alpha:1.0];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.refreshButton.tintColor = [UIColor whiteColor];
+    
 #if TARGET_IPHONE_SIMULATOR
     NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
 #else
@@ -83,7 +85,6 @@
 }
 
 - (IBAction)refreshTable:(id)sender {
-    NSLog(@"%@",[self.model getUName]);
     [self.tableView reloadData];
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F401BD8C1CDC9D9D005045D3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F401BD8B1CDC9D9D005045D3 /* Bolts.framework */; };
 		F424D3BF1CD59060002E8D2F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3BE1CD59060002E8D2F /* ProfileViewController.m */; };
 		F424D3C21CD596DE002E8D2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F424D3C01CD596DE002E8D2F /* Main.storyboard */; };
 		F424D3C61CD59DDA002E8D2F /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F424D3C51CD59DDA002E8D2F /* UserModel.m */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F401BD8B1CDC9D9D005045D3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
 		F424D3BD1CD59060002E8D2F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F424D3BE1CD59060002E8D2F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		F424D3C11CD596DE002E8D2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F401BD8C1CDC9D9D005045D3 /* Bolts.framework in Frameworks */,
 				F424D3D91CD81822002E8D2F /* MapKit.framework in Frameworks */,
 				F424D3D71CD8181C002E8D2F /* CoreLocation.framework in Frameworks */,
 				F4FE36771CD1708A009194FD /* FBSDKLoginKit.framework in Frameworks */,
@@ -210,6 +213,7 @@
 		F4FE36731CD16B35009194FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F401BD8B1CDC9D9D005045D3 /* Bolts.framework */,
 				F424D3D81CD81822002E8D2F /* MapKit.framework */,
 				F424D3D61CD8181C002E8D2F /* CoreLocation.framework */,
 				F4FE36761CD1708A009194FD /* FBSDKLoginKit.framework */,

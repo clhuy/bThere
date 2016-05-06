@@ -50,14 +50,10 @@
         [self.mapView addAnnotation:annotation];
     }
     
+    // set navbar color
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:2.0/255.0 green:141.0/255.0 blue:215.0/255.0 alpha:1.0];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
-    
-    // zoom into user's location
-    CLLocationCoordinate2D coord = self.mapView.userLocation.location.coordinate;
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, 1000.0, 1000.0);
-    [self.mapView setRegion:region animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,30 +68,34 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     [self.locationManager startUpdatingLocation];
-    [self.locationManager requestWhenInUseAuthorization]; // Add This Line
+    [self.locationManager requestWhenInUseAuthorization];
 }
 
-/*
-- (void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+
+/*- (void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     CLLocationCoordinate2D coord = self.mapView.userLocation.location.coordinate;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, 1000.0, 1000.0);
     [self.mapView setRegion:region animated:YES];
-}
-*/
+}*/
 
 - (MKAnnotationView*) mapView:(MKMapView *)mapView viewForAnnotation:(CustomAnnotation*)annotation {
     if([annotation isKindOfClass:[MKUserLocation class]]) return nil;
     MKPinAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
     pin.animatesDrop = YES;
     pin.canShowCallout = YES;
+    
+    // add callout buttton
     CustomCallOutButton *rightButton = [CustomCallOutButton buttonWithType:UIButtonTypeDetailDisclosure];
     NSDictionary* event = annotation.event;
     rightButton.event = event;
     [rightButton addTarget:self action:@selector(showDetailView:) forControlEvents:UIControlEventTouchUpInside];
     pin.rightCalloutAccessoryView = rightButton;
+    
+    // add event image
     UIImage *image = [self imageWithImage:annotation.image scaledToSize:CGSizeMake(60.0,40.0)];
     UIImageView *imgView = [[UIImageView alloc] initWithImage:image];
     pin.leftCalloutAccessoryView = imgView;
+    
     return pin;
 }
 
